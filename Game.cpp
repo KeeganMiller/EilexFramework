@@ -9,6 +9,7 @@ int Game::WindowWidth = 0;
 std::string Game::WindowTitle = "Raylib - Eilex Framework";
 bool Game::IsFullscreen = false;
 bool Game::_IsRunning = true;
+Color Game::ClearColor = RAYWHITE;
 
 Game::Game()
 {

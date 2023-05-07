@@ -23,7 +23,7 @@ public:
 
 	static void CloseGame();
 
-	inline bool IsGameRunning() { return _IsRunning; }
+	static bool IsGameRunning() { return _IsRunning; }
 
 	// Size of the window
 	static int WindowWidth;
