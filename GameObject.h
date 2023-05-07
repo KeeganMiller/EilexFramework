@@ -32,9 +32,13 @@ public:
 	inline void SetPosition(float x, float y) { _LocalPosition = Vector2{ x, y }; }
 	inline void SetPosition(Vector2 pos) { _LocalPosition = pos; }
 
+	// Scale getters and setters
 	inline float GetScale() { return _Scale; }
 	inline void SetScale(float scale) { _Scale = scale; }
 	
+	// Rotation getters and setters
+	inline float GetRotation() { return _Rotation; }
+	inline void SetRotation(float rotation) { _Rotation = rotation; }
 	
 private:
 	void Deinitialize();							// Last thing called before destroying the object
@@ -45,7 +49,7 @@ private:
 	Vector2 _LocalPosition;
 	Vector2 _GlobalPosition;
 	float _Scale;
-	float rotation;
+	float _Rotation;
 
 	std::vector<GameObject*> _Children;					// Reference to all the children of this game object
 
