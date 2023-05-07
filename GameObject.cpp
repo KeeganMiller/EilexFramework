@@ -12,7 +12,7 @@ GameObject::~GameObject()
 {
 	for (auto* go : _Children)
 	{
-		delete go;
+		delete go;	
 	}
 }
 
