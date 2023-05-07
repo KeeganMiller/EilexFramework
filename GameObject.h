@@ -6,7 +6,7 @@
 class GameObject
 {
 public:
-	GameObject();
+	GameObject(std::string objectName = "GameObject");
 	~GameObject();
 
 	void Initialize();

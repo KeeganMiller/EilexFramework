@@ -1,12 +1,19 @@
 #include "pch.h"
 #include "GameObject.h"
 
-GameObject::GameObject()
+GameObject::GameObject(std::string objectName)
 {
+	ObjectName = objectName;
+	IsActive = true;
+	IsDrawable = false;
 }
 
 GameObject::~GameObject()
 {
+	for (auto* go : _Children)
+	{
+		delete go;
+	}
 }
 
 void GameObject::Initialize()
