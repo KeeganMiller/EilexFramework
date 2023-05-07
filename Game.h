@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include "framework.h"
+
+
 class Game
 {
 public:
@@ -19,7 +22,12 @@ public:
 	static int WindowHeight;
 	static std::string WindowTitle;
 	static bool IsFullscreen;
-private:
 
+	static void CloseGame();
+
+	inline bool IsGameRunning() { return _IsRunning; }
+	
+private:
+	static bool _IsRunning;
 };
 

@@ -2,10 +2,13 @@
 #include "Game.h"
 #include <raylib.h>
 
+
+
 int Game::WindowHeight = 0;
 int Game::WindowWidth = 0;
 std::string Game::WindowTitle = "Raylib - Eilex Framework";
 bool Game::IsFullscreen = false;
+bool Game::_IsRunning = true;
 
 Game::Game()
 {
@@ -60,3 +63,12 @@ void Game::ToggleWindowFullscreen(bool fullscreen)
 		ToggleFullscreen();
 	}
 }
+
+void Game::CloseGame()
+{
+	_IsRunning = false;
+
+	CloseWindow();
+}
+
+
