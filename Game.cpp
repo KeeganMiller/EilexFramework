@@ -1,10 +1,11 @@
 #include "pch.h"
 #include "Game.h"
+#include <raylib.h>
 
 int Game::WindowHeight = 0;
 int Game::WindowWidth = 0;
 std::string Game::WindowTitle = "Raylib - Eilex Framework";
-bool Game::IsWindowFullscreen = false;
+bool Game::IsFullscreen = false;
 
 Game::Game()
 {
@@ -36,4 +37,15 @@ void Game::Deintialize()
 
 void Game::CreateWindow(int windowWidth, int windowHeight, std::string windowTitle, bool fullscreen)
 {
+	WindowWidth = windowWidth;
+	WindowHeight = windowHeight;
+	WindowTitle = windowTitle;
+	IsFullscreen = fullscreen;
+
+	InitWindow(WindowWidth, WindowHeight, windowTitle.c_str());
+	SetTargetFPS(60);
+
+
 }
+
+

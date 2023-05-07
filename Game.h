@@ -17,7 +17,7 @@ public:
 	static int WindowWidth;
 	static int WindowHeight;
 	static std::string WindowTitle;
-	static bool IsWindowFullscreen;
+	static bool IsFullscreen;
 private:
 
 };
