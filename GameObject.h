@@ -25,6 +25,12 @@ public:
 	bool IsActive;									// If this object is active
 
 	GameObject* Parent;								// Reference to the parent of this object
+
+
+	// Position getters and setters
+	Vector2 GetPosition() { return _GlobalPosition; }
+	inline void SetPosition(float x, float y) { _LocalPosition = Vector2{ x, y }; }
+	inline void SetPosition(Vector2 pos) { _LocalPosition = pos; }
 	
 private:
 	void Deinitialize();							// Last thing called before destroying the object
