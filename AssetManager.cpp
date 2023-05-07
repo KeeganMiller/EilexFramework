@@ -53,8 +53,25 @@ void AssetManager::Deinitialize()
 
 void AssetManager::AddGameObject(GameObject* go)
 {
+	_ObjectsInScene.push_back(go);
+	go->Initialize();
+	go->Start();
 }
 
 void AssetManager::RemoveGameObject(GameObject* go)
 {
+	int index = -1;
+	for (int i = 0; i < _ObjectsInScene.size(); ++i)
+	{
+		if (go == _ObjectsInScene[i])
+		{
+			index = i;
+			break;
+		}
+	}
+
+	if (index > -1)
+	{
+		_ObjectsInScene.erase(_ObjectsInScene.begin() + index);
+	}
 }
