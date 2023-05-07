@@ -45,7 +45,18 @@ void Game::CreateWindow(int windowWidth, int windowHeight, std::string windowTit
 	InitWindow(WindowWidth, WindowHeight, windowTitle.c_str());
 	SetTargetFPS(60);
 
+	ToggleWindowFullscreen(IsFullscreen);
 
 }
 
-
+void Game::ToggleWindowFullscreen(bool fullscreen)
+{
+	if (fullscreen && !IsWindowFullscreen)
+	{
+		ToggleFullscreen();
+	}
+	else if (!fullscreen && IsWindowFullscreen)
+	{
+		ToggleFullscreen();
+	}
+}

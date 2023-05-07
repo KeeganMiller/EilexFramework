@@ -13,6 +13,7 @@ public:
 	void Deintialize();
 
 	static void CreateWindow(int windowWidth, int windowHeight, std::string windowTitle, bool fullscreen = false);
+	static void ToggleWindowFullscreen(bool fullscreen);
 
 	static int WindowWidth;
 	static int WindowHeight;
