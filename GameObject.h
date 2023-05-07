@@ -10,6 +10,7 @@ public:
 	~GameObject();
 
 	virtual void Initialize();						// Called before anything else
+	virtual void Start();
 	virtual void Update();							// Called each frame
 	virtual void Draw();							// Draws each frame
 	virtual void Destroy();							// Called when the object is destroyed

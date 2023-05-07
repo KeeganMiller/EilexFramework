@@ -22,6 +22,10 @@ void GameObject::Initialize()
 		return;
 }
 
+void GameObject::Start()
+{
+}
+
 void GameObject::Update()
 {
 	if (!IsActive)
