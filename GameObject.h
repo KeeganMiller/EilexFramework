@@ -9,10 +9,10 @@ public:
 	GameObject(std::string objectName = "GameObject");
 	~GameObject();
 
-	void Initialize();
-	void Update();
-	void Draw();
-	void Destroy();
+	virtual void Initialize();
+	virtual void Update();
+	virtual void Draw();
+	virtual void Destroy();
 
 	void SetParent(GameObject* go);
 	void AddChild(GameObject* child);
