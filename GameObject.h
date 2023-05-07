@@ -9,33 +9,35 @@ public:
 	GameObject(std::string objectName = "GameObject");
 	~GameObject();
 
-	virtual void Initialize();
-	virtual void Update();
-	virtual void Draw();
-	virtual void Destroy();
+	virtual void Initialize();						// Called before anything else
+	virtual void Update();							// Called each frame
+	virtual void Draw();							// Draws each frame
+	virtual void Destroy();							// Called when the object is destroyed
 
+	// Parenting methods
 	void SetParent(GameObject* go);
 	void AddChild(GameObject* child);
 	void RemoveChild(GameObject* child);
 
-	std::string ObjectName;
+	std::string ObjectName;							// Reference to the name of the game object
 
-	bool IsDrawable;
-	bool IsActive;
+	bool IsDrawable;								// if this object can be drawn
+	bool IsActive;									// If this object is active
 
-	GameObject* Parent;
+	GameObject* Parent;								// Reference to the parent of this object
 	
 private:
-	void Deinitialize();
+	void Deinitialize();							// Last thing called before destroying the object
 
-	void UpdateTransform();
+	void UpdateTransform();							// Updates the transform for children objects
 
+	// Transform properties
 	Vector2 _LocalPosition;
 	Vector2 _GlobalPosition;
 	float scale;
 	float rotation;
 
-	std::vector<GameObject*> _Children;
+	std::vector<GameObject*> _Children;					// Reference to all the children of this game object
 
 };
 
