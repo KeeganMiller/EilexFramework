@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GameObject.h"
+#include "raymath.h"
 
 GameObject::GameObject(std::string objectName)
 {
@@ -42,6 +43,18 @@ void GameObject::Destroy()
 {
 	if (!IsActive)
 		return;
+}
+
+void GameObject::UpdateTransform()
+{
+	if (Parent == nullptr)
+	{
+		_GlobalPosition = _LocalPosition;
+	}
+	else
+	{
+		_GlobalPosition = Vector2Add(Parent->GetPosition(), _LocalPosition);
+	}
 }
 
 void GameObject::SetParent(GameObject* go)
