@@ -2,7 +2,9 @@
 #include <string>
 #include "framework.h"
 #include "raylib.h"
+#include <vector>
 
+class GameState;
 
 class Game
 {
@@ -19,7 +21,9 @@ public:
 	static void CreateWindow(int windowWidth, int windowHeight, std::string windowTitle, bool fullscreen = false);
 	static void ToggleWindowFullscreen(bool fullscreen);
 
-	
+	static void AddGameState(GameState* state);
+	static void RemoveGameState(GameState* state);
+	static void RemoveGameState(std::string stateName);
 
 	static void CloseGame();
 
@@ -38,5 +42,7 @@ public:
 	
 private:
 	static bool _IsRunning;							// Reference to if the game is running
+	static std::vector<GameState*> _ActiveStates;
+	
 };
 
