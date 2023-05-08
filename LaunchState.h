@@ -1,5 +1,8 @@
 #pragma once
 #include "GameState.h"
+
+class GameObject;
+
 class LaunchState :
     public GameState
 {
@@ -20,6 +23,6 @@ public:
 protected:
 
 private:
-
+    GameObject* testObject;
 };
 
