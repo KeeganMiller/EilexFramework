@@ -15,20 +15,25 @@ GameState::~GameState()
 
 void GameState::Initialize()
 {
+	_StateAssets->Initialize();
 }
 
 void GameState::Start()
 {
+	_StateAssets->Start();
 }
 
 void GameState::Update()
 {
+	_StateAssets->Update();
 }
 
 void GameState::Draw()
 {
+	_StateAssets->Draw();
 }
 
 void GameState::Deinitialize()
 {
+	_StateAssets->Deinitialize();
 }
