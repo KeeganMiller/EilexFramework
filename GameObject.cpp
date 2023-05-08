@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GameObject.h"
 #include "raymath.h"
+#include <iostream>
 
 GameObject::GameObject(std::string objectName)
 {
@@ -31,6 +32,10 @@ void GameObject::Update()
 {
 	if (!IsActive)
 		return;
+
+	UpdateTransform();
+
+	std::cout << "Game Object is updating" << std::endl;
 }
 
 void GameObject::Draw()
