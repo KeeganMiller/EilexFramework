@@ -41,7 +41,7 @@ public:
 	inline float GetRotation() { return _Rotation; }
 	inline void SetRotation(float rotation) { _Rotation = rotation; }
 	
-private:
+protected:
 	void Deinitialize();							// Last thing called before destroying the object
 
 	void UpdateTransform();							// Updates the transform for children objects
