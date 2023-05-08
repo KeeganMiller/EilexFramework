@@ -8,7 +8,7 @@ class Sprite :
 {
 public:
     Sprite(std::string objectName = "Sprite");
-    Sprite(TextureDetails* texture, std::string objectName = "Sprite") : GameObject(objectName);
+    Sprite(TextureDetails* texture, std::string objectName = "Sprite");
 
     ~Sprite();
 
