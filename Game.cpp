@@ -2,6 +2,7 @@
 #include "Game.h"
 #include <raylib.h>
 #include "GameState.h"
+#include "LaunchState.h"
 
 
 int Game::WindowHeight = 0;
@@ -10,6 +11,7 @@ std::string Game::WindowTitle = "Raylib - Eilex Framework";
 bool Game::IsFullscreen = false;
 bool Game::_IsRunning = true;
 Color Game::ClearColor = RAYWHITE;
+std::vector<GameState*> Game::_ActiveStates;
 
 Game::Game()
 {
@@ -21,6 +23,7 @@ Game::~Game()
 
 void Game::Initialize()
 {
+	_ActiveStates.push_back(new LaunchState("Launch State"));
 	if (_ActiveStates.size() > 0)
 	{
 		for (auto state : _ActiveStates)
