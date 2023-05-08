@@ -25,8 +25,6 @@ public:
 	static void RemoveGameState(GameState* state);
 	static void RemoveGameState(std::string stateName);
 
-	static GameState* GetGameState(std::string stateName);
-
 	static void CloseGame();
 
 	static bool IsGameRunning() { return _IsRunning; }
