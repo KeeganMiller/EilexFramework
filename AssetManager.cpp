@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "AssetManager.h"
+#include <raylib.h>
+#include "TextureDetails.h"
 #include "GameObject.h"
 
 AssetManager::AssetManager(GameState* state)
@@ -74,4 +76,46 @@ void AssetManager::RemoveGameObject(GameObject* go)
 	{
 		_ObjectsInScene.erase(_ObjectsInScene.begin() + index);
 	}
+}
+
+TextureDetails* AssetManager::GenerateTexture(std::string filePath, std::string textureName)
+{
+	if (filePath == "")
+		return nullptr;
+
+	if (textureName == "")
+		textureName = "TEXTURE";
+
+	for (auto* texture : _LoadedTextures)
+	{
+		if (texture->TexturePath == filePath)
+		{
+			return texture;
+		}
+	}
+
+	TextureDetails* generatedTexture = new TextureDetails(filePath, textureName, LoadTexture(filePath.c_str()));
+	if (generatedTexture->IsValid)
+	{
+		_LoadedTextures.push_back(generatedTexture);
+	}
+	return generatedTexture;
+}
+
+TextureDetails* AssetManager::GenerateTexture(std::string filePath)
+{
+	GenerateTexture(filePath, "NewTexture");
+}
+
+TextureDetails* AssetManager::RetrieveTexture(std::string fileName)
+{
+	for (auto* texture : _LoadedTextures)
+	{
+		if (texture->TextureName == fileName)
+		{
+			return texture;
+		}
+	}
+
+	return new TextureDetails();
 }
