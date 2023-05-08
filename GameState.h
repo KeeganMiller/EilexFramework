@@ -20,7 +20,7 @@ public:
 	inline std::string GetStateName() { return _StateName; }			// Getter for the name of the state
 	inline AssetManager* GetAssetManager() { return _StateAssets; }		// Get reference to the asset manager
 
-private:
+protected:
 	std::string _StateName;
 	AssetManager* _StateAssets;
 };
