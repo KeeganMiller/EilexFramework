@@ -2,6 +2,7 @@
 #include "GameState.h"
 
 class Sprite;
+class Timer;
 
 class LaunchState :
     public GameState
@@ -23,6 +24,9 @@ public:
 protected:
 
 private:
-    Sprite* EilexLogo;
+    Sprite* _EilexLogo;
+    Timer* _ChangeSceneTimer;
+
+    void OnChangeScene();
 };
 

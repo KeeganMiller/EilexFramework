@@ -6,23 +6,26 @@
 #include <iostream>
 #include <raymath.h>
 #include "raylib.h"
+#include "SplashScreenTimer.h"
 
 
 
 void LaunchState::Initialize()
 {
 	GameState::Initialize();
-	EilexLogo = new Sprite(_StateAssets->GenerateTexture("Assets/Logos/EilexLogo.png", "EilexLogo"));
-	_StateAssets->AddGameObject(EilexLogo);
+	_EilexLogo = new Sprite(_StateAssets->GenerateTexture("Assets/Logos/EilexLogo.png", "EilexLogo"));
+	_StateAssets->AddGameObject(_EilexLogo);
 
 	Vector2 screenPos = Vector2
 	{
-		static_cast<float>((Game::WindowWidth / 2) - (EilexLogo->GetTextureWidth() / 2)),
-		static_cast<float>((Game::WindowHeight / 2) - (EilexLogo->GetTextureHeight() / 2))
+		static_cast<float>((Game::WindowWidth / 2) - (_EilexLogo->GetTextureWidth() / 2)),
+		static_cast<float>((Game::WindowHeight / 2) - (_EilexLogo->GetTextureHeight() / 2))
 	};
 
-	EilexLogo->SetPosition(screenPos);
-	EilexLogo->Tint = CLITERAL(Color) { 255, 255, 255, 100 };
+	_EilexLogo->SetPosition(screenPos);
+	_EilexLogo->Tint = CLITERAL(Color) { 255, 255, 255, 255 };
+
+	_ChangeSceneTimer = new SplashScreenTimer();
 	
 }
 
@@ -34,5 +37,11 @@ void LaunchState::Start()
 void LaunchState::Update()
 {
 	GameState::Update();
-	std::cout << "Launch state is updating" << std::endl;
+	if (_ChangeSceneTimer != nullptr)
+		_ChangeSceneTimer->Update();
+}
+
+void LaunchState::OnChangeScene()
+{
+	Game::ClearColor = RAYWHITE;
 }
