@@ -12,6 +12,8 @@ public:
 	virtual void Pause();
 	virtual void Resume();
 
+	float GetTimeRemaining();
+
 	std::string TimerName;
 	float TimerLength;
 	float CurrentTime;
