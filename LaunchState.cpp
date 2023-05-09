@@ -17,8 +17,8 @@ void LaunchState::Initialize()
 
 	Vector2 screenPos = Vector2
 	{
-		static_cast<float>((Game::WindowWidth / 2) - (testObject->GetTextureWidth() / 2)),
-		static_cast<float>((Game::WindowHeight / 2) - (testObject->GetTextureHeight() / 2))
+		static_cast<float>((Game::WindowWidth / 2) - (EilexLogo->GetTextureWidth() / 2)),
+		static_cast<float>((Game::WindowHeight / 2) - (EilexLogo->GetTextureHeight() / 2))
 	};
 
 	EilexLogo->SetPosition(screenPos);
