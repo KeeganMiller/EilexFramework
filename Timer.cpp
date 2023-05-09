@@ -1,10 +1,13 @@
 #include "pch.h"
 #include "Timer.h"
 #include "Game.h"
+#include <raylib.h>
+#include <iostream>
 
 Timer::Timer()
 {
 	TimerName = "Timer";
+	CurrentTime = 0;
 	TimerLength = 4.0;
 	Loop = false;
 	IsRunning = true;
@@ -15,6 +18,8 @@ Timer::Timer(std::string timerName, float length, bool loop)
 	TimerName = timerName;
 	TimerLength = length;
 	Loop = loop;
+	CurrentTime = 0;
+	IsRunning = true;
 }
 
 Timer::~Timer()
