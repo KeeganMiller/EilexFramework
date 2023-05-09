@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Tools">
       <UniqueIdentifier>{47df515f-1d2c-4c24-8009-e8ef49607498}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Tools\Timer">
+      <UniqueIdentifier>{8a6c454d-1da0-415d-888d-17f964562e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tools\Timer">
+      <UniqueIdentifier>{297b3f56-f5cf-4dc5-a9d5-57657227487a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -61,7 +67,10 @@
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Header Files\Tools</Filter>
+      <Filter>Header Files\Tools\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashScreenTimer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -90,7 +99,10 @@
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Source Files\Tools</Filter>
+      <Filter>Source Files\Tools\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashScreenTimer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
