@@ -22,7 +22,7 @@ void LaunchState::Initialize()
 	};
 
 	EilexLogo->SetPosition(screenPos);
-	
+	EilexLogo->Tint = CLITERAL(Color) { 255, 255, 255, 100 };
 	
 }
 
