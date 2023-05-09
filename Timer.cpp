@@ -32,6 +32,7 @@ void Timer::Update()
 		return;
 
 	CurrentTime += 1 * Game::GetDeltaTime();
+	std::cout << CurrentTime << std::endl;
 	if (CurrentTime > TimerLength)
 	{
 		OnTimerComplete();
@@ -49,8 +50,14 @@ void Timer::Resume()
 	IsRunning = true;
 }
 
+float Timer::GetTimeRemaining()
+{
+	return TimerLength - CurrentTime;
+}
+
 void Timer::OnTimerComplete()
 {
+	
 	CurrentTime = 0;
 	if (!Loop)
 		IsRunning = false;
