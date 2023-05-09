@@ -1,4 +1,5 @@
 #pragma once
+#include <raylib.h>
 #include "GameObject.h"
 #include "TextureDetails.h"
 
@@ -15,6 +16,8 @@ public:
 
     inline int GetTextureWidth() { return _TextureInfo->TextureAsset.width; }
     inline int GetTextureHeight() { return _TextureInfo->TextureAsset.height; }
+
+    Color Tint;
 
 protected:
     TextureDetails* _TextureInfo;

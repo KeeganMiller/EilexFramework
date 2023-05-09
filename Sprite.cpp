@@ -6,6 +6,7 @@
 Sprite::Sprite(std::string objectName)
 {
 	IsDrawable = false;
+	Tint = WHITE;
 }
 
 Sprite::Sprite(TextureDetails* texture, std::string objectName) : GameObject(objectName)
@@ -27,6 +28,6 @@ void Sprite::Draw()
 {
 	if (IsDrawable)
 	{
-		DrawTextureEx(_TextureInfo->TextureAsset, _GlobalPosition, _Rotation, _Scale, WHITE);
+		DrawTextureEx(_TextureInfo->TextureAsset, _GlobalPosition, _Rotation, _Scale, Tint);
 	}
 }
