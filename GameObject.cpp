@@ -8,6 +8,9 @@ GameObject::GameObject(std::string objectName)
 	ObjectName = objectName;
 	IsActive = true;
 	IsDrawable = false;
+
+	_Rotation = 0;
+	_Scale = 1;
 }
 
 GameObject::~GameObject()
