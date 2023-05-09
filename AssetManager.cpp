@@ -99,12 +99,13 @@ TextureDetails* AssetManager::GenerateTexture(std::string filePath, std::string 
 	{
 		_LoadedTextures.push_back(generatedTexture);
 	}
+
 	return generatedTexture;
 }
 
 TextureDetails* AssetManager::GenerateTexture(std::string filePath)
 {
-	GenerateTexture(filePath, "NewTexture");
+	return GenerateTexture(filePath, "NewTexture");
 }
 
 TextureDetails* AssetManager::RetrieveTexture(std::string fileName)
