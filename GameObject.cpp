@@ -37,8 +37,6 @@ void GameObject::Update()
 		return;
 
 	UpdateTransform();
-
-	std::cout << "Game Object is updating" << std::endl;
 }
 
 void GameObject::Draw()
