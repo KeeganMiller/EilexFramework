@@ -1,27 +1,25 @@
 #pragma once
 #include <string>
 
-typedef void(*TimerCompleteFunction)();
 class Timer
 {
 public:
 	Timer();
-	Timer(std::string timerName, float length, bool loop, TimerCompleteFunction timerComplete);
+	Timer(std::string timerName, float length, bool loop);
 	~Timer();
 
-	void Update();
-	void Pause();
-	void Resume();
-	void OnTimerComplete();
+	virtual void Update();
+	virtual void Pause();
+	virtual void Resume();
 
 	std::string TimerName;
-	TimerCompleteFunction TimerComplete;
 	float TimerLength;
 	float CurrentTime;
 	bool Loop;
 	bool IsRunning;
 
-private:
+protected:
+	virtual void OnTimerComplete();
 	
 
 };

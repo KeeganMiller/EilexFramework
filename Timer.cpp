@@ -8,15 +8,13 @@ Timer::Timer()
 	TimerLength = 4.0;
 	Loop = false;
 	IsRunning = true;
-	TimerComplete = nullptr;
 }
 
-Timer::Timer(std::string timerName, float length, bool loop, TimerCompleteFunction timerComplete)
+Timer::Timer(std::string timerName, float length, bool loop)
 {
 	TimerName = timerName;
 	TimerLength = length;
 	Loop = loop;
-	TimerComplete = timerComplete;
 }
 
 Timer::~Timer()
@@ -48,11 +46,6 @@ void Timer::Resume()
 
 void Timer::OnTimerComplete()
 {
-	if (TimerComplete != nullptr)
-	{
-		TimerComplete();
-	}
-
 	CurrentTime = 0;
 	if (!Loop)
 		IsRunning = false;
