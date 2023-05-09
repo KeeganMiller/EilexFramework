@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Sprite.h"
 #include "TextureDetails.h"
+#include <iostream>
 
 Sprite::Sprite(std::string objectName)
 {
@@ -10,6 +11,7 @@ Sprite::Sprite(std::string objectName)
 Sprite::Sprite(TextureDetails* texture, std::string objectName) : GameObject(objectName)
 {
 	_TextureInfo = texture;
+	
 	if (_TextureInfo->IsValid)
 	{
 		IsDrawable = true;

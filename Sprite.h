@@ -1,7 +1,6 @@
 #pragma once
 #include "GameObject.h"
-
-class TextureDetails;
+#include "TextureDetails.h"
 
 class Sprite :
     public GameObject
@@ -13,6 +12,9 @@ public:
     ~Sprite();
 
     void Draw() override;
+
+    inline int GetTextureWidth() { return _TextureInfo->TextureAsset.width; }
+    inline int GetTextureHeight() { return _TextureInfo->TextureAsset.height; }
 
 protected:
     TextureDetails* _TextureInfo;
