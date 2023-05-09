@@ -24,7 +24,7 @@ Game::~Game()
 
 void Game::Initialize()
 {
-	_ActiveStates.push_back(new LaunchState("Launch State"));
+	_ActiveStates.push_back(new LaunchState("LaunchState"));
 	if (_ActiveStates.size() > 0)
 	{
 		for (auto state : _ActiveStates)
