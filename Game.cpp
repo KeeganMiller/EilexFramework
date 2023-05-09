@@ -12,6 +12,7 @@ bool Game::IsFullscreen = false;
 bool Game::_IsRunning = true;
 Color Game::ClearColor = RAYWHITE;
 std::vector<GameState*> Game::_ActiveStates;
+float Game::_DeltaTime = 0;
 
 Game::Game()
 {
@@ -46,6 +47,7 @@ void Game::Start()
 
 void Game::Update()
 {
+	_DeltaTime = GetFrameTime();
 	if (_ActiveStates.size() > 0)
 	{
 		for (auto state : _ActiveStates)

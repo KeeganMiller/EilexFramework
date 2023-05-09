@@ -39,10 +39,14 @@ public:
 	static bool IsFullscreen;
 
 	static Color ClearColor;						// Reference to the color that renders when the drawing clears
+
+	static float GetDeltaTime() { return _DeltaTime; }
 	
 private:
 	static bool _IsRunning;							// Reference to if the game is running
 	static std::vector<GameState*> _ActiveStates;
+
+	static float _DeltaTime;
 	
 };
 
