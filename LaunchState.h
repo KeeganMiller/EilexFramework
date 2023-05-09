@@ -1,7 +1,7 @@
 #pragma once
 #include "GameState.h"
 
-class GameObject;
+class Sprite;
 
 class LaunchState :
     public GameState
@@ -23,6 +23,6 @@ public:
 protected:
 
 private:
-    GameObject* testObject;
+    Sprite* EilexLogo;
 };
 

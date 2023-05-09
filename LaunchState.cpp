@@ -1,18 +1,29 @@
 #include "pch.h"
 #include "LaunchState.h"
 #include "Game.h"
-#include "GameObject.h"
 #include "Sprite.h"
 #include "AssetManager.h"
 #include <iostream>
+#include <raymath.h>
+#include "raylib.h"
 
 
 
 void LaunchState::Initialize()
 {
 	GameState::Initialize();
-	testObject = new Sprite();
-	_StateAssets->AddGameObject(testObject);
+	EilexLogo = new Sprite(_StateAssets->GenerateTexture("Assets/Logos/EilexLogo.png", "EilexLogo"));
+	_StateAssets->AddGameObject(EilexLogo);
+
+	Vector2 screenPos = Vector2
+	{
+		static_cast<float>((Game::WindowWidth / 2) - (testObject->GetTextureWidth() / 2)),
+		static_cast<float>((Game::WindowHeight / 2) - (testObject->GetTextureHeight() / 2))
+	};
+
+	EilexLogo->SetPosition(screenPos);
+	
+	
 }
 
 void LaunchState::Start()
