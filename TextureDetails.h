@@ -10,6 +10,13 @@ public:
 	Texture2D TextureAsset;
 	bool IsValid;
 
+	TextureDetails()
+	{
+		TexturePath = "NA";
+		TextureName = "NA";
+		IsValid = false;
+	}
+
 	TextureDetails(std::string texturePath, std::string textureName, Texture2D asset)
 	{
 		TexturePath = texturePath;
