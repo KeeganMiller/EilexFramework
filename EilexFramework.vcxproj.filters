@@ -70,7 +70,7 @@
       <Filter>Header Files\Tools\Timer</Filter>
     </ClInclude>
     <ClInclude Include="SplashScreenTimer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Tools\Timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +102,7 @@
       <Filter>Source Files\Tools\Timer</Filter>
     </ClCompile>
     <ClCompile Include="SplashScreenTimer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Tools\Timer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
