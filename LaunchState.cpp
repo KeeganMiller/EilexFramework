@@ -8,7 +8,13 @@
 #include "raylib.h"
 #include "SplashScreenTimer.h"
 
+float LaunchState::_AplhaLerpTime = 0;
 
+
+LaunchState::~LaunchState()
+{
+	delete _EilexLogo;
+}
 
 void LaunchState::Initialize()
 {
@@ -23,9 +29,11 @@ void LaunchState::Initialize()
 	};
 
 	_EilexLogo->SetPosition(screenPos);
-	_EilexLogo->Tint = CLITERAL(Color) { 255, 255, 255, 255 };
+	_EilexLogo->Tint = CLITERAL(Color) { 255, 255, 255, 0 };
+	
 
 	_ChangeSceneTimer = new SplashScreenTimer();
+	_FadeInLogo = true;
 	
 }
 
@@ -37,6 +45,22 @@ void LaunchState::Start()
 void LaunchState::Update()
 {
 	GameState::Update();
+
+	if (_FadeInLogo)
+	{
+		if (_EilexLogo != nullptr)
+		{
+			float tintValue = Lerp(0, 255, _AplhaLerpTime);
+			_EilexLogo->Tint.a = tintValue;
+			_AplhaLerpTime += 0.5f * Game::GetDeltaTime();
+
+			if (_EilexLogo->Tint.a > 254)
+				_FadeInLogo = false;
+		}
+	}
+		
+
+	
 	if (_ChangeSceneTimer != nullptr)
 		_ChangeSceneTimer->Update();
 }

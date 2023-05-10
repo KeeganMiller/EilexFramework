@@ -11,8 +11,7 @@ public:
     LaunchState(std::string stateName) : GameState(stateName)
     {}
     
-    ~LaunchState()
-    {}
+    ~LaunchState();
 
     void Initialize() override;
     void Start() override;
@@ -26,6 +25,9 @@ protected:
 private:
     Sprite* _EilexLogo;
     Timer* _ChangeSceneTimer;
+
+    static float _AplhaLerpTime;
+    bool _FadeInLogo;
 
     void OnChangeScene();
 };
