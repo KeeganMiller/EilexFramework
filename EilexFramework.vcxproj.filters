@@ -90,6 +90,9 @@
     <ClInclude Include="UISprite.h">
       <Filter>Header Files\Objects\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EilexFramework.cpp">
@@ -127,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="UISprite.cpp">
       <Filter>Source Files\Objects\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
