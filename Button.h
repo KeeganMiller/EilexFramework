@@ -1,4 +1,4 @@
-#pragma once
+#pragma once    
 #include "UISprite.h"
 
 class Button :
@@ -10,16 +10,28 @@ public:
 
 
     void Update() override;
+    void Draw() override;
 
     void SetHovered(TextureDetails* texture);
     void SetNormal(TextureDetails* texture);
+
+    Color Tint;
+    bool NoHover;
     
 
 private:
 
 protected:
-    UISprite* Hovered;
-    UISprite* Normal;
+    TextureDetails* Hovered;
+    TextureDetails* Normal;
+
+    TextureDetails* CurrentSelectedTexture;
+
+    void UpdateSelectedTexture();
+   
+    
+
+
 
 };
 
