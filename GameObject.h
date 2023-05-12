@@ -44,7 +44,7 @@ public:
 protected:
 	void Deinitialize();							// Last thing called before destroying the object
 
-	void UpdateTransform();							// Updates the transform for children objects
+	virtual void UpdateTransform();							// Updates the transform for children objects
 
 	// Transform properties
 	Vector2 _LocalPosition;
