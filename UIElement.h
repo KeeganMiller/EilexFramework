@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "AnchorPoint.h"
+#include "eventpp/eventdispatcher.h"
 
 class UIElement :
     public GameObject
