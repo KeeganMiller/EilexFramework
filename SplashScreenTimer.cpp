@@ -14,6 +14,7 @@ SplashScreenTimer::~SplashScreenTimer()
 void SplashScreenTimer::OnTimerComplete()
 {
 	Game::RemoveGameState("LaunchState");
+	Game::ApplyPendingStates();
 	//Game::ClearColor = WHITE;
 	Timer::OnTimerComplete();
 }
