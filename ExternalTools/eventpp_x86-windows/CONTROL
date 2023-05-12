@@ -1,0 +1,7 @@
+Package: eventpp
+Version: 0.1.2
+Depends: vcpkg-cmake:x64-windows, vcpkg-cmake-config:x64-windows
+Architecture: x86-windows
+Multi-Arch: same
+Abi: 69388a9400bb03c87e83c0ab698097f233f6cbd4aa505d26f75a7cb041a0a62b
+Description: C++ library for event dispatcher and callback list
