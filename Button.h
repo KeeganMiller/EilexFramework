@@ -1,5 +1,6 @@
 #pragma once    
 #include "UISprite.h"
+#include "eventpp/eventdispatcher.h"
 
 class Button :
     public UISprite
@@ -17,6 +18,8 @@ public:
 
     Color Tint;
     bool NoHover;
+
+    eventpp::EventDispatcher<int, void()> OnClick;
     
 
 private:

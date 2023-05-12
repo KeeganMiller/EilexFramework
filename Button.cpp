@@ -2,6 +2,7 @@
 #include "Button.h"
 #include "TextureDetails.h"
 
+
 Button::Button(std::string objectName)
 {
 	_IsHovering = false;
@@ -22,6 +23,14 @@ void Button::Update()
 	UISprite::Update();
 
 	UpdateSelectedTexture();
+
+	if (_IsHovering)
+	{
+		if (IsMouseButtonPressed(0))
+		{
+			OnClick.dispatch(0);
+		}
+	}
 }
 
 void Button::Draw()
