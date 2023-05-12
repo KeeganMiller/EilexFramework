@@ -37,6 +37,12 @@
     <Filter Include="Header Files\Tools\Timer">
       <UniqueIdentifier>{297b3f56-f5cf-4dc5-a9d5-57657227487a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\UI">
+      <UniqueIdentifier>{8a127a31-d321-49a2-987d-f2a8cf7f2998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\UI">
+      <UniqueIdentifier>{5ce62ea9-409c-4cdd-97be-97fd687ab3ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -72,6 +78,18 @@
     <ClInclude Include="SplashScreenTimer.h">
       <Filter>Header Files\Tools\Timer</Filter>
     </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="AnchorPoint.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UISprite.h">
+      <Filter>Header Files\Objects\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EilexFramework.cpp">
@@ -104,5 +122,16 @@
     <ClCompile Include="SplashScreenTimer.cpp">
       <Filter>Source Files\Tools\Timer</Filter>
     </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="UISprite.cpp">
+      <Filter>Source Files\Objects\UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EilexFramework.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
