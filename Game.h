@@ -24,6 +24,7 @@ public:
 	static void AddGameState(GameState* state);
 	static void RemoveGameState(GameState* state);
 	static void RemoveGameState(std::string stateName);
+	static void ApplyPendingStates();
 
 	static void CloseGame();
 
@@ -41,10 +42,13 @@ public:
 	static Color ClearColor;						// Reference to the color that renders when the drawing clears
 
 	static float GetDeltaTime() { return _DeltaTime; }
+
+	static GameState* PendingState;
 	
 private:
 	static bool _IsRunning;							// Reference to if the game is running
 	static std::vector<GameState*> _ActiveStates;
+	
 
 	static float _DeltaTime;
 	

@@ -4,6 +4,8 @@
 #include "GameState.h"
 #include "LaunchState.h"
 
+#include <iostream>
+
 
 int Game::WindowHeight = 0;
 int Game::WindowWidth = 0;
@@ -12,6 +14,7 @@ bool Game::IsFullscreen = false;
 bool Game::_IsRunning = true;
 Color Game::ClearColor = RAYWHITE;
 std::vector<GameState*> Game::_ActiveStates;
+GameState* Game::PendingState;
 float Game::_DeltaTime = 0;
 
 Game::Game()
@@ -107,6 +110,9 @@ void Game::ToggleWindowFullscreen(bool fullscreen)
 
 void Game::AddGameState(GameState* state)
 {
+	if (state == nullptr)
+		return;
+
 	_ActiveStates.push_back(state);
 	state->Initialize();
 	state->Start();
@@ -157,6 +163,15 @@ void Game::RemoveGameState(std::string stateName)
 
 			delete state;
 		}
+	}
+}
+
+void Game::ApplyPendingStates()
+{
+	if (PendingState != nullptr)
+	{
+		AddGameState(PendingState);
+		PendingState = nullptr;
 	}
 }
 
