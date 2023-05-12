@@ -13,6 +13,8 @@ UIElement::UIElement(std::string objectName)
 
 	_OriginX = _ElementWidth / 2;
 	_OriginY = -_ElementHeight / 2;
+
+	_IsHovering = false;
 }
 
 UIElement::~UIElement()
