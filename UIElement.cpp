@@ -121,3 +121,48 @@ void UIElement::SetOrigin(OriginPoint point)
 
 	}
 }
+
+void UIElement::Update()
+{
+	GameObject::Update();
+	_IsMouseOver = DetectMouseIsOver();
+	if (_IsMouseOver)
+	{
+		if (!_IsHovering)
+		{
+			_OnMouseEnter.dispatch(0);
+			_IsHovering = true;
+		}
+	}
+	else
+	{
+		if (_IsHovering)
+		{
+			_OnMouseExit.dispatch(0);
+			_IsHovering = false;
+		}
+	}
+
+}
+
+bool UIElement::DetectMouseIsOver()
+{
+	Vector2 mousePos = GetMousePosition();
+	Vector2 globalPos = GenerateGlobalPosition();
+	if (mousePos.x > globalPos.x && mousePos.x < (globalPos.x + _ElementWidth))
+	{
+		if (mousePos.y > globalPos.y && mousePos.y < (globalPos.y + _ElementHeight))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+Vector2 UIElement::GenerateGlobalPosition()
+{
+	Vector2 globalPos = Vector2();
+	globalPos.x = _GlobalPosition.x + _OffSetX;
+	globalPos.y = _GlobalPosition.y + _OffSetY;
+	return globalPos;
+}

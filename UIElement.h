@@ -14,6 +14,13 @@ public:
     void SetAnchor(AnchorPoint point);
     void SetOrigin(OriginPoint point);
 
+    inline void SetElementSize(float width, float height) { _ElementWidth = width; _ElementHeight = height; }
+
+    void Update() override;
+
+    eventpp::EventDispatcher<int, void()> _OnMouseEnter;
+    eventpp::EventDispatcher<int, void()> _OnMouseExit;
+
 protected:
 
     float _ElementWidth;
@@ -28,9 +35,18 @@ protected:
     float _OriginX;
     float _OriginY;
 
+    bool _IsMouseOver;
 
+
+    bool _IsHovering;
+
+    bool DetectMouseIsOver();
+    Vector2 GenerateGlobalPosition();
 
 private:
+    
+
+  
     
 };
 
