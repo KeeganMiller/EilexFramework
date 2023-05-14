@@ -37,9 +37,9 @@ void Button::Draw()
 {
 	if (IsDrawable && CurrentSelectedTexture != nullptr && CurrentSelectedTexture->IsValid)
 	{
-		Vector2 drawPos = GenerateGlobalPosition();
-		drawPos.x - _OriginX;
-		drawPos.y - _OriginY;
+		Vector2 drawPos = this->GetPosition();
+		drawPos.x -= _OriginX;
+		drawPos.y -= _OriginY;
 		DrawTextureEx(CurrentSelectedTexture->TextureAsset, drawPos, _Rotation, _Scale, Tint);
 	}
 }
