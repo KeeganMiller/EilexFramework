@@ -43,7 +43,7 @@ void UISprite::SetTexture(TextureDetails* texture)
 Vector2 UISprite::GetDrawPosition()
 {
 	Vector2 drawPos = Vector2();
-	drawPos.x = _GlobalPosition.x + (_OffSetX - _OriginX);
-	drawPos.y = _GlobalPosition.y + (_OffSetY - _OriginY);
+	drawPos.x = this->GetPosition().x - _OriginX;
+	drawPos.y = this->GetPosition().y - _OriginY;
 	return drawPos;
 }
