@@ -4,6 +4,7 @@
 
 class GameObject;
 class TextureDetails;
+class FontDetails;
 
 class AssetManager
 {
@@ -24,6 +25,10 @@ public:
 	TextureDetails* GenerateTexture(std::string filePath);
 	TextureDetails* RetrieveTexture(std::string fileName);
 
+	FontDetails* GenerateFont(std::string fontPath, std::string fontName);
+	FontDetails* GenerateFont(std::string filePath);
+	FontDetails* RetrieveFont(std::string fontName);
+
 
 private:
 	GameState* _OwningState;
@@ -31,6 +36,7 @@ private:
 
 
 	std::vector<TextureDetails*> _LoadedTextures;
+	std::vector<FontDetails*> _LoadedFonts;
 
 
 

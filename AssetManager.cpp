@@ -2,6 +2,7 @@
 #include "AssetManager.h"
 #include <raylib.h>
 #include "TextureDetails.h"
+#include "FontDetails.h"
 #include "GameObject.h"
 
 AssetManager::AssetManager(GameState* state)
@@ -119,4 +120,52 @@ TextureDetails* AssetManager::RetrieveTexture(std::string fileName)
 	}
 
 	return new TextureDetails();
+}
+
+FontDetails* AssetManager::GenerateFont(std::string fontPath, std::string fontName)
+{
+	if (fontPath != "")
+	{
+		if (fontName == "")
+			fontName = "FONT";
+		for (auto* font : _LoadedFonts)
+		{
+			if (font->FontPath == fontPath)
+			{
+				if (font->FontName == "" || font->FontName == "FONT")
+					font->FontName = fontName;
+
+				return font;
+			}
+		}
+
+		Font generatedFont = LoadFont(fontPath.c_str());
+		if (generatedFont.texture.id > 0)
+		{
+			FontDetails* createdFont = new FontDetails(fontPath, fontName, generatedFont);
+			_LoadedFonts.push_back(createdFont);
+			return createdFont;
+		}
+	}
+
+	return nullptr;
+}
+
+FontDetails* AssetManager::GenerateFont(std::string filePath)
+{
+	return GenerateFont(filePath, "FONT");
+}
+
+FontDetails* AssetManager::RetrieveFont(std::string fontName)
+{
+	if (_LoadedFonts.size() > 0)
+	{
+		for (auto font : _LoadedFonts)
+		{
+			if (font->FontName == fontName)
+				return font;
+		}
+	}
+
+	return nullptr;
 }
