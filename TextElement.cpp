@@ -30,3 +30,18 @@ void TextElement::Draw()
 		DrawText(Text.c_str(), drawPos.x, drawPos.y, FontSize, FontColor);
 	}
 }
+
+void TextElement::SetText(std::string text)
+{
+	Text = text;
+	Vector2 textLength;
+	if (_FontData != nullptr)
+	{
+		textLength = MeasureTextEx(_FontData->FontData, Text.c_str(), FontSize, 0);
+		SetElementSize(textLength.x, textLength.y);
+	}
+	else
+	{
+		SetElementSize(MeasureText(Text.c_str(), FontSize), 0);
+	}
+}

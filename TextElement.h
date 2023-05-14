@@ -21,8 +21,8 @@ public:
 
     void Draw() override;
 
-    std::string Text;
-
+    
+    void SetText(std::string text);
 
     // Font Settings
     Color FontColor;
@@ -32,6 +32,7 @@ public:
 
 protected:
     FontDetails* _FontData;
+    std::string Text;
 
 private:
 };
