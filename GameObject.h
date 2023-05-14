@@ -29,7 +29,7 @@ public:
 
 
 	// Position getters and setters
-	inline Vector2 GetPosition() { return _GlobalPosition; }
+	virtual Vector2 GetPosition() { return _GlobalPosition; }
 	inline void SetPosition(float x, float y) { _LocalPosition = Vector2{ x, y }; }
 	inline void SetPosition(Vector2 pos) { _LocalPosition = pos; }
 
