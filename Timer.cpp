@@ -32,7 +32,6 @@ void Timer::Update()
 		return;
 
 	CurrentTime += 1 * Game::GetDeltaTime();
-	std::cout << CurrentTime << std::endl;
 	if (CurrentTime > TimerLength)
 	{
 		OnTimerComplete();
