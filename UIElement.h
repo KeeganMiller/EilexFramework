@@ -15,11 +15,19 @@ public:
     void SetOrigin(OriginPoint point);
 
     inline void SetElementSize(float width, float height) { _ElementWidth = width; _ElementHeight = height; }
+    inline float GetElementWidth() { return _ElementWidth; }
+    inline float GetElementHeight() { return _ElementHeight; }
 
     void Update() override;
 
     eventpp::EventDispatcher<int, void()> _OnMouseEnter;
     eventpp::EventDispatcher<int, void()> _OnMouseExit;
+
+    inline float GetOffsetX() { return _OffSetX; }
+    inline float GetOffsetY() { return _OffSetY; }
+
+    Vector2 GetPosition() override;
+    Vector2 GetTopLeftHandPosition();
 
 protected:
 
@@ -31,6 +39,8 @@ protected:
 
     float _OffSetX;
     float _OffSetY;
+    float _LocalOffsetX;
+    float _LocalOffsetY;
 
     float _OriginX;
     float _OriginY;
@@ -42,6 +52,8 @@ protected:
 
     bool DetectMouseIsOver();
     Vector2 GenerateGlobalPosition();
+    void UpdateTransform() override;
+
 
 private:
     

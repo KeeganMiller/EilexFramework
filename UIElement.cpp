@@ -25,51 +25,76 @@ UIElement::~UIElement()
 void UIElement::SetAnchor(AnchorPoint point)
 {
 	_PositionAnchorPoint = point;
+	int maxWidth;
+	int maxHeight;
+
+	// Determine the size of the object
+	if (Parent != nullptr)
+	{
+		UIElement* parentElement = dynamic_cast<UIElement*>(Parent);
+		if (parentElement)
+		{
+			maxWidth = parentElement->_ElementWidth;
+			maxHeight = parentElement->_ElementHeight;
+		}
+		else
+		{
+			maxWidth = Game::WindowWidth;
+			maxHeight = Game::WindowHeight;
+		}
+	}
+	else
+	{
+		maxWidth = Game::WindowWidth;
+		maxHeight = Game::WindowHeight;
+	}
+
+
 	switch (_PositionAnchorPoint)
 	{
 	case AnchorPoint::NONE:
-		_OffSetX = 0;
-		_OffSetY = 0;
+		_LocalOffsetX = 0;
+		_LocalOffsetY = 0;
 		break;
 	case AnchorPoint::MIDDLE:
-		_OffSetX = Game::WindowWidth / 2;
-		_OffSetY = Game::WindowHeight / 2;
+		_LocalOffsetX = maxWidth / 2;
+		_LocalOffsetY = maxHeight / 2;
 		break;
 	case AnchorPoint::TOP_LEFT:
-		_OffSetX = 0;
-		_OffSetY = 0;
+		_LocalOffsetX = 0;
+		_LocalOffsetY = 0;
 		break;
 	case AnchorPoint::TOP:
-		_OffSetX = Game::WindowWidth / 2;
-		_OffSetY = 0;
+		_LocalOffsetX = maxWidth / 2;
+		_LocalOffsetY = 0;
 		break;
 	case AnchorPoint::TOP_RIGHT:
-		_OffSetX = Game::WindowWidth;
-		_OffSetY = 0;
+		_LocalOffsetX = maxWidth;
+		_LocalOffsetY = 0;
 		break;
 	case AnchorPoint::MIDDLE_LEFT:
-		_OffSetX = 0;
-		_OffSetY = Game::WindowHeight / 2;
+		_LocalOffsetX = 0;
+		_LocalOffsetY = maxHeight / 2;
 		break;
 	case AnchorPoint::MIDDLE_RIGHT:
-		_OffSetX = Game::WindowWidth;
-		_OffSetY = Game::WindowHeight / 2;
+		_LocalOffsetX = maxWidth;
+		_LocalOffsetY = maxHeight / 2;
 		break;
 	case AnchorPoint::BOTTOM_LEFT:
-		_OffSetX = 0;
-		_OffSetY = Game::WindowHeight;
+		_LocalOffsetX = 0;
+		_LocalOffsetY = maxHeight;
 		break;
 	case AnchorPoint::BOTTOM:
-		_OffSetX = Game::WindowWidth / 2;
-		_OffSetY = Game::WindowHeight;
+		_LocalOffsetX = maxWidth / 2;
+		_LocalOffsetY = maxHeight;
 		break;
 	case AnchorPoint::BOTTOM_RIGHT:
-		_OffSetX = Game::WindowWidth;
-		_OffSetY = Game::WindowHeight;
+		_LocalOffsetX = maxWidth;
+		_LocalOffsetY = maxHeight;
 		break;
 	default:
-		_OffSetX = 0;
-		_OffSetY = 0;
+		_LocalOffsetX = 0;
+		_LocalOffsetY = 0;
 		break;
 	}
 }
@@ -146,13 +171,60 @@ void UIElement::Update()
 
 }
 
+Vector2 UIElement::GetPosition()
+{
+	Vector2 position = Vector2();
+	position.x = _GlobalPosition.x + _OffSetX;
+	position.y = _GlobalPosition.y + _OffSetY;
+	return position;
+}
+
+Vector2 UIElement::GetTopLeftHandPosition()
+{
+	Vector2 position = this->GetPosition();
+	switch (_PositionAnchorPoint)
+	{
+		case AnchorPoint::TOP_LEFT:
+			return position;
+		case AnchorPoint::TOP:
+			position.x -= (_OriginX / 2);
+			return position;
+		case AnchorPoint::TOP_RIGHT:
+			position.x -= _OriginX;
+			return position;
+		case AnchorPoint::MIDDLE_LEFT:
+			position.y -= (_OriginY / 2);
+			return position;
+		case AnchorPoint::MIDDLE:
+			position.x -= (_OriginX / 2);
+			position.y -= (_OriginY / 2);
+			return position;
+		case AnchorPoint::MIDDLE_RIGHT:
+			position.x -= _OriginX;
+			position.y -= (_OriginY / 2);
+			return position;
+		case AnchorPoint::BOTTOM_LEFT:
+			position.y -= _OriginY;
+			return position;
+		case AnchorPoint::BOTTOM:
+			position.x -= (_OriginX / 2);
+			position.y -= _OriginY;
+			return position;
+		case AnchorPoint::BOTTOM_RIGHT:
+			position.x -= _OriginX;
+			position.y -= _OriginY;
+			return position;
+		default:
+			return position;
+	}
+}
+
 bool UIElement::DetectMouseIsOver()
 {
 	Vector2 mousePos = GetMousePosition();
-	Vector2 globalPos = GenerateGlobalPosition();
-	if (mousePos.x > globalPos.x && mousePos.x < (globalPos.x + _ElementWidth))
+	if (mousePos.x > GetPosition().x && mousePos.x < (GetPosition().x + _ElementWidth))
 	{
-		if (mousePos.y > globalPos.y && mousePos.y < (globalPos.y + _ElementHeight))
+		if (mousePos.y > GetPosition().y && mousePos.y < (GetPosition().y + _ElementHeight))
 		{
 			return true;
 		}
@@ -166,4 +238,27 @@ Vector2 UIElement::GenerateGlobalPosition()
 	globalPos.x = _GlobalPosition.x + _OffSetX;
 	globalPos.y = _GlobalPosition.y + _OffSetY;
 	return globalPos;
+}
+
+void UIElement::UpdateTransform()
+{
+	if (Parent)
+	{
+		UIElement* parentUI = dynamic_cast<UIElement*>(Parent);
+		if (parentUI)
+		{
+			_GlobalPosition = Vector2Add(parentUI->GetTopLeftHandPosition(), _LocalPosition);
+		}
+		else
+		{
+			_GlobalPosition = Vector2Add(Parent->GetPosition(), _LocalPosition);
+		}
+	}
+	else
+	{
+		_GlobalPosition = _LocalPosition;
+	}
+
+	_OffSetX = _LocalOffsetX;
+	_OffSetY = _LocalOffsetY;
 }
