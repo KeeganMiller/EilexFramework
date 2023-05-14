@@ -78,9 +78,6 @@
     <ClInclude Include="SplashScreenTimer.h">
       <Filter>Header Files\Tools\Timer</Filter>
     </ClInclude>
-    <ClInclude Include="UIElement.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="AnchorPoint.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
@@ -92,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Header Files\Objects\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,14 +125,14 @@
     <ClCompile Include="SplashScreenTimer.cpp">
       <Filter>Source Files\Tools\Timer</Filter>
     </ClCompile>
-    <ClCompile Include="UIElement.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="UISprite.cpp">
       <Filter>Source Files\Objects\UI</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>Source Files\Objects\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
