@@ -2,6 +2,7 @@
 #include "UIElement.h"
 #include "Game.h"
 #include <raylib.h>
+#include <raymath.h>
 
 UIElement::UIElement(std::string objectName)
 {
