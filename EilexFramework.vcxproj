@@ -144,6 +144,7 @@
     <ClInclude Include="AnchorPoint.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="FontDetails.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="SplashScreenTimer.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="TextElement.h" />
     <ClInclude Include="TextureDetails.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIElement.h" />
@@ -174,6 +176,7 @@
     </ClCompile>
     <ClCompile Include="SplashScreenTimer.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="TextElement.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UISprite.cpp" />
