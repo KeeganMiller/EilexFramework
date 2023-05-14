@@ -139,7 +139,7 @@ FontDetails* AssetManager::GenerateFont(std::string fontPath, std::string fontNa
 			}
 		}
 
-		Font generatedFont = LoadFont(fontPath.c_str());
+		Font generatedFont = LoadFontEx(fontPath.c_str(), 32, 0, 250);
 		if (generatedFont.texture.id > 0)
 		{
 			FontDetails* createdFont = new FontDetails(fontPath, fontName, generatedFont);
