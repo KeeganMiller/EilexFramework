@@ -102,6 +102,9 @@
     <ClInclude Include="VBox.h">
       <Filter>Header Files\Objects\UI</Filter>
     </ClInclude>
+    <ClInclude Include="HBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EilexFramework.cpp">
@@ -148,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="VBox.cpp">
       <Filter>Source Files\Objects\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HBox.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
