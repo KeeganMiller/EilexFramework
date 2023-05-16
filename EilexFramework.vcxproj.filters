@@ -99,6 +99,9 @@
     <ClInclude Include="TextElement.h">
       <Filter>Header Files\Objects\UI</Filter>
     </ClInclude>
+    <ClInclude Include="VBox.h">
+      <Filter>Header Files\Objects\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EilexFramework.cpp">
@@ -141,6 +144,9 @@
       <Filter>Source Files\Objects\UI</Filter>
     </ClCompile>
     <ClCompile Include="TextElement.cpp">
+      <Filter>Source Files\Objects\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="VBox.cpp">
       <Filter>Source Files\Objects\UI</Filter>
     </ClCompile>
   </ItemGroup>
