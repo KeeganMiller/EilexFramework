@@ -15,6 +15,9 @@ public:
     void SetTexture(TextureDetails* texture);
 
     Color Tint;
+
+    inline void SetOffsetX(float x) { _OffSetX = x; }
+    inline void SetOffsetY(float y) { _OffSetY = y; }
 protected:
 
 
