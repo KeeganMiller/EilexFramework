@@ -166,6 +166,17 @@ void Game::RemoveGameState(std::string stateName)
 	}
 }
 
+GameState* Game::RetrieveGameState(std::string stateName)
+{
+	for (auto* state : _ActiveStates)
+	{
+		if (state->GetStateName() == stateName)
+			return state;
+	}
+
+	return nullptr;
+}
+
 void Game::ApplyPendingStates()
 {
 	if (PendingState != nullptr)

@@ -24,6 +24,7 @@ public:
 	static void AddGameState(GameState* state);
 	static void RemoveGameState(GameState* state);
 	static void RemoveGameState(std::string stateName);
+	static GameState* RetrieveGameState(std::string stateName);
 	static void ApplyPendingStates();
 
 	static void CloseGame();
