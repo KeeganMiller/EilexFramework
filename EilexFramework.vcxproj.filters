@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Objects\UI">
       <UniqueIdentifier>{5ce62ea9-409c-4cdd-97be-97fd687ab3ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Debug">
+      <UniqueIdentifier>{6fd6a31d-e4b4-4625-88ab-58128bf71ea4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
