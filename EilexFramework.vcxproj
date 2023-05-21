@@ -78,7 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\KAMil\Documents\Eliex Interactive\Phase1\EilexInteractive\EilexFramework\ExternalTools\eventpp_x86-windows\include;C:\Users\KAMil\Documents\Eliex Interactive\Phase1\EilexInteractive\EilexFramework\ExternalTools\raylib_x86-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KAMil\Documents\Eliex Interactive\Phase1\EilexInteractive\EilexFramework\ExternalTools\json-parser;C:\Users\KAMil\Documents\Eliex Interactive\Phase1\EilexInteractive\EilexFramework\ExternalTools\eventpp_x86-windows\include;C:\Users\KAMil\Documents\Eliex Interactive\Phase1\EilexInteractive\EilexFramework\ExternalTools\raylib_x86-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -144,6 +144,7 @@
     <ClInclude Include="AnchorPoint.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="CSVParser.h" />
     <ClInclude Include="FontDetails.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
@@ -165,6 +166,7 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CSVParser.cpp" />
     <ClCompile Include="EilexFramework.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
