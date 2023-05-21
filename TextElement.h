@@ -28,6 +28,8 @@ public:
     Color FontColor;
     int FontSize;
 
+    inline void SetFontData(FontDetails* details) { _FontData = details; }
+
 
 
 protected:
