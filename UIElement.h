@@ -26,6 +26,9 @@ public:
     inline float GetOffsetX() { return _OffSetX; }
     inline float GetOffsetY() { return _OffSetY; }
 
+    inline void SetOffSetX(const float offset) { _LocalOffsetX = offset; }
+    inline void SetOffSetY(const float offset) { _LocalOffsetY = offset; }
+
     Vector2 GetPosition() override;
     Vector2 GetTopLeftHandPosition();
 
